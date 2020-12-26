@@ -1,0 +1,9 @@
+main: com.SkyStudios.KitsGUI.Main
+version: 1.0.0
+name: KitsGUI
+author: SkyStudios Co.
+api-version: 1.16
+description: KitsGUI
+commands:
+  kits:
+    description: Opens KitsGUI

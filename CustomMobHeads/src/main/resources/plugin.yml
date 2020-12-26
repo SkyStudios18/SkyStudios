@@ -1,0 +1,13 @@
+main: com.SkyStudios.CustomMobHeads.CustomMobHeadsMain
+name: CustomMobHeads
+version: 1.0.0
+api-version: 1.16
+author: SkyStudios Co.
+description: CustomMobHeads
+commands:
+  pighead:
+    description: Gives a Pig Head
+  counter:
+    description: Lists the current count
+  heal:
+    description: Heal myself
