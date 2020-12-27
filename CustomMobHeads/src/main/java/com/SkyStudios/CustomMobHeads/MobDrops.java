@@ -18,10 +18,10 @@ public class MobDrops implements Listener {
             e.getLocation().getWorld().dropItem(e.getLocation(), ItemStacks.cowheadIS);
         }
         else if(e instanceof Chicken){
-            e.getLocation().getWorld().dropItem(e.getLocation(), ItemStacks.cowheadIS);
+            e.getLocation().getWorld().dropItem(e.getLocation(), ItemStacks.chickenheadIS);
         }
         else if(e instanceof Sheep){
-            e.getLocation().getWorld().dropItem(e.getLocation(), ItemStacks.cowheadIS);
+            e.getLocation().getWorld().dropItem(e.getLocation(), ItemStacks.sheepheadIS);
         }
     }
 
