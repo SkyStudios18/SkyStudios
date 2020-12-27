@@ -1,59 +1,16 @@
-package com.SkyStudios.CustomMobHeads;
+package com.SkyStudios.CustomMobHeads.DataBase;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import java.io.File;
-import java.io.IOException;
-import java.sql.*;
 
-public class DatabaseManager {
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-    Connection connection = null;
-
-    public DatabaseManager() {
-        try {
-            getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS HeadData (" +
-                    "`player` TEXT NOT NULL," +
-                    "`counter` TEXT NOT NULL," +
-                    "PRIMARY KEY (`player`))").execute();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private Connection getConnection() {
-        try {
-            File f = new File(CustomMobHeadsMain.getPlugin().getDataFolder(), "CustomMobHeadsCounter.db");
-            if(!(f.exists())) {
-                try {
-                    CustomMobHeadsMain.getPlugin().getDataFolder().mkdir();
-                    f.createNewFile();
-                    Bukkit.getLogger().info("Created DataBase file for Head Counter");
-                }
-                catch(IOException e1) {
-                    e1.printStackTrace();
-                }
-            }
-
-            try{
-                Class.forName("org.sqlite.JDBC");
-                if (connection == null || connection.isClosed()) {
-                    connection = DriverManager.getConnection("jdbc:sqlite:" + f);
-                }
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return connection;
-    }
+public class PigDataBase extends DatabaseManager {
 
     public int getCounter(Player player) {
         PreparedStatement ps = null;
         ResultSet rs = null;
-
         try {
             ps = getConnection().prepareStatement("SELECT * FROM HeadData WHERE player = ?");
             ps.setString(1, player.getUniqueId().toString());
@@ -124,4 +81,5 @@ public class DatabaseManager {
             }
         }
     }
+
 }
