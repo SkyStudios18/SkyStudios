@@ -11,3 +11,9 @@ commands:
     description: Lists the current count
   heal:
     description: Heal myself
+  cowhead:
+    description: Gives a Cow Head
+  sheephead:
+    description: Gives a Sheep Head
+  chickenhead:
+    description: Gives a Chicken Head
