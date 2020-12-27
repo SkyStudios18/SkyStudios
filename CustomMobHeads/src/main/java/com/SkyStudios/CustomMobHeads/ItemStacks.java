@@ -58,14 +58,14 @@ public class ItemStacks implements Listener {
             if(chickenheadSkullmeta != null) {
                 chickenheadSkullmeta.setOwner("MHF_Chicken");
                 chickenheadSkullmeta.setDisplayName(ChatColor.RED + "Pig Head " + ChatColor.GREEN + "Right Click " + ChatColor.AQUA + "to add it to your collection.");
-                chickenheadIS.setItemMeta(pigheadSkullmeta);
+                chickenheadIS.setItemMeta(chickenheadSkullmeta);
             }
 
             SkullMeta sheepheadSkullmeta = (SkullMeta) sheepheadIS.getItemMeta();
             if(sheepheadSkullmeta != null) {
                 sheepheadSkullmeta.setOwner("MHF_Pig");
                 sheepheadSkullmeta.setDisplayName(ChatColor.RED + "Pig Head " + ChatColor.GREEN + "Right Click " + ChatColor.AQUA + "to add it to your collection.");
-                sheepheadIS.setItemMeta(pigheadSkullmeta);
+                sheepheadIS.setItemMeta(sheepheadSkullmeta);
             }
         }
 }
