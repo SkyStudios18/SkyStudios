@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PigDataBase extends DatabaseManager {
+public class ChickenDataBase extends DatabaseManager {
 
-    public PigDataBase() {
+    public ChickenDataBase() {
         super(false);
     }
 
@@ -22,7 +22,7 @@ public class PigDataBase extends DatabaseManager {
 
             while (rs.next()) {
                 if (rs.getString("player").equals(player.getUniqueId().toString())) {
-                    return Integer.parseInt(rs.getString("pigcounter"));
+                    return Integer.parseInt(rs.getString("chickencounter"));
                 }
             }
         } catch (SQLException e) {
@@ -58,17 +58,17 @@ public class PigDataBase extends DatabaseManager {
             ps.setString(1, player.getUniqueId().toString());
             rs = ps.executeQuery();
             if (rs.next()) {
-                ps1 = getConnection().prepareStatement("UPDATE HeadData SET pigcounter = ? WHERE player = ?");
+                ps1 = getConnection().prepareStatement("UPDATE HeadData SET chickencounter = ? WHERE player = ?");
                 ps1.setString(1, Integer.toString(getCounter(player) + increment));
                 ps1.setString(2, player.getUniqueId().toString());
             }
             else{
                 ps1 = getConnection().prepareStatement("INSERT INTO HeadData (player, pigcounter, cowcounter, sheepcounter, chickencounter) VALUES (?,?,?,?,?)");
                 ps1.setString(1, player.getUniqueId().toString());
-                ps1.setString(2, Integer.toString(increment));
+                ps1.setString(2, Integer.toString(0));
                 ps1.setString(3, Integer.toString(0));
                 ps1.setString(4, Integer.toString(0));
-                ps1.setString(5, Integer.toString(0));
+                ps1.setString(5, Integer.toString(increment));
             }
 
             ps.close();
@@ -94,4 +94,5 @@ public class PigDataBase extends DatabaseManager {
             }
         }
     }
+
 }

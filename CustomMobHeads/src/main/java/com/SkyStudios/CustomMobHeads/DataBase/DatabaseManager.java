@@ -10,20 +10,35 @@ import java.sql.*;
 public class DatabaseManager {
 
     Connection connection = null;
+    public PigDataBase pigManager;
+    public CowDataBase cowManager;
+    public SheepDataBase sheepManager;
+    public ChickenDataBase chickenManager;
 
-    public DatabaseManager() {
-        try {
-            getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS HeadData (" +
-                    "`player` TEXT NOT NULL," +
-                    "`pigcounter` TEXT NOT NULL," +
-                    "`cowcounter` TEXT NOT NULL," +
-                    "`sheepcounter` TEXT NOT NULL," +
-                    "`chickencounter` TEXT NOT NULL," +
-                    "PRIMARY KEY (`player`))").execute();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+    public DatabaseManager(boolean initialize) {
+
+        if(initialize) {
+
+            try {
+                getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS HeadData (" +
+                        "`player` TEXT NOT NULL," +
+                        "`pigcounter` TEXT NOT NULL," +
+                        "`cowcounter` TEXT NOT NULL," +
+                        "`sheepcounter` TEXT NOT NULL," +
+                        "`chickencounter` TEXT NOT NULL," +
+                        "PRIMARY KEY (`player`))").execute();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            pigManager = new PigDataBase();
+            cowManager = new CowDataBase();
+            sheepManager = new SheepDataBase();
+            chickenManager = new ChickenDataBase();
         }
+
     }
 
     protected Connection getConnection() {

@@ -7,7 +7,21 @@ description: CustomMobHeads
 commands:
   pighead:
     description: Gives a Pig Head
-  counter:
-    description: Lists the current count
+  pigcounter:
+    description: Lists the current count of Pig Heads
+  cowcounter:
+    description: Lists the current count of Cow Heads
+  sheepcounter:
+    description: Lists the current count of Sheep Heads
+  chickencounter:
+    description: Lists the current count of Chicken Heads
   heal:
     description: Heal myself
+  cowhead:
+    description: Gives a Cow Head
+  sheephead:
+    description: Gives a Sheep Head
+  chickenhead:
+    description: Gives a Chicken Head
+  collections:
+    description: Opens Collections GUI

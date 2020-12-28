@@ -16,11 +16,18 @@ public class CustomMobHeadsMain extends JavaPlugin implements Listener{
         plugin = this;
 
         this.getServer().getLogger().info("CustomMobHeads V1.0.0 Enabled Successfully");
-        registerEvents(this, new ItemStacks(), new MobGainCounter(), new MobDrops());
+        registerEvents(this, new ItemStacks(), new MobGainCounter(), new MobDrops(), new Collections());
         getCommand("pighead").setExecutor(new Commands());
-        getCommand("counter").setExecutor(new Commands());
+        getCommand("cowhead").setExecutor(new Commands());
+        getCommand("sheephead").setExecutor(new Commands());
+        getCommand("chickenhead").setExecutor(new Commands());
+        getCommand("pigcounter").setExecutor(new Commands());
+        getCommand("cowcounter").setExecutor(new Commands());
+        getCommand("sheepcounter").setExecutor(new Commands());
+        getCommand("chickencounter").setExecutor(new Commands());
+        getCommand("collections").setExecutor(new Commands());
         getCommand("heal").setExecutor(new Commands());
-        databaseManager = new DatabaseManager();
+        databaseManager = new DatabaseManager(true);
     }
 
 

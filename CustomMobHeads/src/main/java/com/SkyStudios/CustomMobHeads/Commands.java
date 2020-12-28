@@ -6,6 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import static com.SkyStudios.CustomMobHeads.Collections.collectionsInv;
 import static com.SkyStudios.CustomMobHeads.ItemStacks.*;
 
 public class Commands implements CommandExecutor {
@@ -55,8 +56,21 @@ public class Commands implements CommandExecutor {
                 p.sendMessage("Your Inventory is full, Dropping item...");
             }
         }
-        if(cmd.getName().equalsIgnoreCase("counter")) {
-            p.sendMessage(ChatColor.AQUA + "Your Pig Head Count is: " + ChatColor.GOLD + CustomMobHeadsMain.getDatabaseManager().getCounter(p));
+        if(cmd.getName().equalsIgnoreCase("pigcounter")) {
+            p.sendMessage(ChatColor.AQUA + "Your Pig Head Count is: " + ChatColor.GOLD + CustomMobHeadsMain.getDatabaseManager().pigManager.getCounter(p));
+        }
+        if(cmd.getName().equalsIgnoreCase("cowcounter")) {
+            p.sendMessage(ChatColor.AQUA + "Your Cow Head Count is: " + ChatColor.GOLD + CustomMobHeadsMain.getDatabaseManager().cowManager.getCounter(p));
+        }
+        if(cmd.getName().equalsIgnoreCase("sheepcounter")) {
+            p.sendMessage(ChatColor.AQUA + "Your Sheep Head Count is: " + ChatColor.GOLD + CustomMobHeadsMain.getDatabaseManager().sheepManager.getCounter(p));
+        }
+        if(cmd.getName().equalsIgnoreCase("chickencounter")) {
+            p.sendMessage(ChatColor.AQUA + "Your Chicken Head Count is: " + ChatColor.GOLD + CustomMobHeadsMain.getDatabaseManager().chickenManager.getCounter(p));
+        }
+        if(cmd.getName().equalsIgnoreCase("collections")){
+            p.openInventory(collectionsInv);
+            p.sendMessage(ChatColor.AQUA + "Opening Collections...");
         }
 
         if(cmd.getName().equalsIgnoreCase("heal")) {
